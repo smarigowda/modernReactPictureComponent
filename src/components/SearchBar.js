@@ -15,7 +15,9 @@ const SearchBar = () => {
                 className={searchInput}
                 type="text"
                 onChange={onChangeInput}
-                onClick={onClickInput}/>
+                onClick={event => {
+                    console.log('[Arrow functon] input clicked...');
+                }}/>
         </form>
     )
 };
