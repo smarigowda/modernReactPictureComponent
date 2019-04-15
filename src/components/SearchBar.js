@@ -30,14 +30,15 @@ const SearchBar = () => {
                 Authorization: 'Client-ID 7dc069b8b233468a0f6b3ab3354efb09425051905ffadfdd8fe3dd66f0200d0c'
             }
         });
-        // construct an array of image urls
-        const images = output.data.results.map(d => d.urls.regular);
+        console.log(output);
+        const images = output.data.results.map(details => ({ id: details.id, url: details.urls.regular }));
         console.log(images);
         setImages(images);
 
     }
     return (
         <div className={styles.container}>
+            {/* SearchBar component */}
             <form onSubmit={handleSubmit}>
                 <label htmlFor="">Image Search</label>
                 <input
@@ -50,10 +51,11 @@ const SearchBar = () => {
                     }} />
                 <input className={styles.submitButton} type="submit" value="Get Images"></input>
             </form>
+            {/* ImageList component */}
             <div className={styles.imagesContainer}>
                 {
-                    images.map(d => {
-                        return <img src={d}></img>
+                    images.map(details => {
+                        return <img key={details.id} src={details.url}></img>
                     })
                 }
             </div>
