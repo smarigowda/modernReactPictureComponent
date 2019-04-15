@@ -1,3 +1,12 @@
+/* apply a natural box layout model to all elements, but allowing components to change */
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
 .searchInput {
     padding: 1rem;
     font-size: 1.5rem;
@@ -9,4 +18,37 @@ form label {
     display: block;
     margin-bottom: 1rem;
     font-size: 1.5rem;
+}
+
+form {
+    display: grid;
+    & label {
+        text-align: center;
+    }
+}
+.submitButton {
+    font-size: 1.2rem;
+    background-color: coral;
+    color: white;
+    border-radius: 5px;
+    padding: 1rem;
+    appearance: none;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    &:focus {
+        outline: none;
+    }
+}
+.container {
+    width: 20%;
+    margin: 0 auto;
+}
+.imagesContainer {
+    max-width: 80%;
+    margin: 0 auto;
+}
+img {
+    max-width: 100%;
+    margin-bottom: .5rem;
 }

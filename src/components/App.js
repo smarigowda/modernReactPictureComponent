@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchBar from './SearchBar';
+import './App.module.scss';
 
 const App = () => {
     return (
