@@ -1,11 +1,11 @@
 import React from 'react';
 import SearchBar from './SearchBar';
-import './App.module.scss';
+import {heading} from './App.module.scss';
 
 const App = () => {
     return (
         <div>
-            <h1>A React App !</h1>
+            <h1 className={heading}>A React App !</h1>
             <SearchBar />
         </div>
     )
