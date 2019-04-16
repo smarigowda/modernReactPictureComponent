@@ -1,14 +1,17 @@
 import React from 'react';
-import { container, image } from './ImageList.module.scss';
+import { container } from './ImageList.module.scss';
+import ImageCard from './ImageCard';
 
-export default ({ imageDetails }) => {
+const ImageList =  ({ imageDetails }) => {
     return (
         <div className={container}>
             {
                 imageDetails.map(item => {
-                    return <img className={image} key={item.id} src={item.url}></img>
+                    return <ImageCard item={item}/>
                 })
             }
         </div>
     )
 }
+
+export default ImageList;
