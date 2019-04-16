@@ -1,16 +1,25 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { image } from './ImageCard.module.scss';
 const ImageCard = ({ item }) => {
     let imageRef = useRef(null);
-    console.log(imageRef);
+    useEffect(() => {
+        console.dir(imageRef.current);
+        imageRef.current.addEventListener('click', () => {
+            console.log('image clicked');
+        })
+        return () => {
+            console.log('remove event listener here');
+            imageRef.current.removeEventListener('click');
+        }
+    });
+
     return (
-        <img 
+        <img
             className={image}
             ref={imageRef}
-            key={item.id}
             src={item.url}>
         </img>
-    )
+    );
 }
 
 export default ImageCard;
